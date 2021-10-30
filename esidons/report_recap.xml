@@ -1,0 +1,31 @@
+<odoo>
+
+    <record id="report_campagne_recap" model="ir.actions.report">
+        <field name="name">Campagnes_Recap Report</field>
+        <field name="model">esidons.campagne</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">esidonspgi.report_campagne_recap_view</field>
+        <field name="report_file">esidonspgi.report_campagne_recap</field>
+        <field name="binding_model_id" ref="model_esidons_campagne"/>
+        <field name="binding_type">report</field>
+    </record>
+    <template id="report_campagne_recap_view">
+        <t t-call="web.html_container">
+        <h1> Liste des compagnes n'ayant pas recu suffisamment de don </h1> 
+        <t t-foreach="docs" t-as="campagne">
+        <t t-if="campagne.suffisant == False ">
+        <h2>Nom campagne </h2>  
+		<t t-esc="campagne.name"/>
+        <p>Description du campagne</p>
+	    <t t-esc="campagne.description"/> 
+        <p>Date debut du campagne</p>
+	    <t t-esc="campagne.datedeb"/> 
+        <p>Date fin du campagne</p>
+	    <t t-esc="campagne.datefin"/>                  
+            </t>
+        </t>
+        </t>
+        
+    </template>
+
+</odoo>

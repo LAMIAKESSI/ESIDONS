@@ -1,0 +1,8 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+campagne_manager,campagne manager,model_esidons_campagne,group_manager,1,1,1,1
+don_manager,don manager,model_esidons_don,group_manager,1,1,1,1
+benif_manager,benif manager,model_esidons_benif,group_manager,1,1,1,1
+
+campagne_read_all,campagne all,model_esidons_campagne,,1,0,0,0
+don_read_all,don all,model_esidons_don,,1,0,0,0
+benif_read_all,benif all,model_esidons_benif,,1,0,0,0

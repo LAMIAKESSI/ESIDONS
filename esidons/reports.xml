@@ -1,0 +1,34 @@
+<odoo>
+
+    <record id="report_campagne" model="ir.actions.report">
+        <field name="name">Campagnes Report</field>
+        <field name="model">esidons.campagne</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">esidonspgi.report_campagne_view</field>
+        <field name="report_file">esidonspgi.report_campagne</field>
+        <field name="binding_model_id" ref="model_esidons_campagne"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_campagne_view">
+        <t t-call="web.html_container">
+        <h1> Liste des compagnes et leurs dons </h1> 
+        <t t-foreach="docs" t-as="doc">
+        <h2>Nom compagne </h2>  
+		<t t-esc="doc.name"/>
+        <h3>les dons</h3>
+		<t t-foreach="doc.don_ids" t-as="don">
+                <p>Nom de donateur: </p>
+                <li><span t-field="don.name"/></li>
+                <p>Anonyme ou pas: </p>
+                <t t-esc="don.anon"/>
+				<p>Type de don: </p>
+				<t t-esc="don.typededon"/>
+				<p>Age de donateur: </p>	
+				<t t-esc="don.age"/>				
+                </t>                        
+            </t>
+        </t>
+    </template>
+
+</odoo>
